@@ -1,5 +1,5 @@
 #include <ros.h>
-#include <std_msgs/Float32.msg>
+#include <std_msgs/Float32.h>
 // I2Cdev and MPU6050 must be installed as libraries, or else the .cpp/.h files
 // for both classes must be in the include path of your project
 #include <I2Cdev.h>

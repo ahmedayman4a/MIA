@@ -1,5 +1,5 @@
 #include <ros.h>
-#include <std_msgs/Int64.msg>
+#include <std_msgs/Int64.h>
 
 #define encoderA_pin PB_12
 #define encoderB_pin PB_13
@@ -29,10 +29,10 @@ void loop() {
   nh.spinOnce();
 }
 
-void ArmsInstances::IRQ_encoder_A() {
+void IRQ_encoder_A() {
   encoderCount += (digitalRead(encoderA_pin) == digitalRead(encoderB_pin)) ? 1 : -1;
 }
 
-void ArmsInstances::IRQ_encoder_B() {
-  encoderCount += (digitalRead(encoderA_pin) == digitalRead(encoder_B_pin)) ? -1 : 1;
+void IRQ_encoder_B() {
+  encoderCount += (digitalRead(encoderA_pin) == digitalRead(encoderB_pin)) ? -1 : 1;
 }
