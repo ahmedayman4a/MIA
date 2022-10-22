@@ -1,0 +1,11 @@
+<launch>
+        <arg name="port" default="$(optenv IMU_PORT /dev/ttyUSB0)" />
+
+        <node name="kalman_yaw" pkg="rns" type="yaw_kalman.py" output="screen" />
+
+        <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
+                <param name="port" type="string" value="$(arg port)" />
+                <param name="baud" type="int" value="115200" />
+        </node>
+        <node name="yaw_plot" pkg="rqt_plot" type="rqt_plot" args="/yaw_angle /filtered_yaw" />
+</launch>
